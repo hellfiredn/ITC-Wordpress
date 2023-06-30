@@ -1,12 +1,32 @@
-<?php 
-/**
- * Registers an editor stylesheet for the theme.
- */
-add_action( 'admin_init', 'register_editor_stylesheet' );
-function register_editor_stylesheet() {
-    add_editor_style( 'assets/main/main.css' );
+<?php
+add_action('wp_enqueue_scripts', 'theme_scripts');
+function theme_scripts() {
+    $version = date("Hhis"); // FOR DEV ONLY 
+
+    // Load CSS
+    wp_enqueue_style('main-style-css', THEME_URL . '/assets/main/main.css', array(), $version, 'all');
+    
+    // Load JS
+    wp_enqueue_script('main-scripts-js', THEME_URL . '/assets/main/main.js', array('jquery'), $version, true);  
 }
 
+
+/*
+ * Create blocks for site
+ */
+add_filter('block_categories_all', 'custom_block_category', 10, 2);
+function namtech_block_category($categories, $post)
+{
+    return array_merge(
+        $categories,
+        array(
+            array(
+                'slug' => 'custom-blocks',
+                'title' => __('The custom Blocks', 'custom-blocks'),
+            ),
+        )
+    );
+}
 
 /*
  * Create blocks for site
@@ -18,13 +38,13 @@ function _acf_init_block_types()
     if (function_exists('acf_register_block_type')) {
 
         acf_register_block_type(array(
-            'name'              => 'Spacing',
-            'title'             => __('Spacing'),
-            'description'       => __('A custom Spacing block.'),
-            'render_template'   => 'site-structure/blocks/spacing/index.php',
-            'category'          => 'thenatives-blocks',
+            'name'              => 'About-us-header',
+            'title'             => __('About us header'),
+            'description'       => __('A custom About us header block.'),
+            'render_template'   => 'site-structure/blocks/about-us-header/index.php',
+            'category'          => 'custom-blocks',
             'icon'              => 'admin-customizer',
-            'keywords'          => array('core', 'space', 'spacing'),
+            'keywords'          => array('core', 'about us', 'header'),
             'mode'              => 'edit', // auto, preview, edit
         ));
     }
