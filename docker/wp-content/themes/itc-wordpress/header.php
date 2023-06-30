@@ -11,3 +11,4 @@
 
 <body <?php body_class(); ?>>
     <?php get_template_part('site-structure/header/index'); ?>
+    <main>

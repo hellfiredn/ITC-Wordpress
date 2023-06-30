@@ -8,6 +8,11 @@ function theme_scripts() {
     
     // Load JS
     wp_enqueue_script('main-scripts-js', THEME_URL . '/assets/main/main.js', array('jquery'), $version, true);  
+
+    // slick slider
+    wp_enqueue_style('slick-css', THEME_URL . '/assets/lib/slick/slick.css');
+	wp_enqueue_style('slick-theme-css', THEME_URL . '/assets/lib/slick/slick-theme.css');
+	wp_enqueue_script('slick-js',THEME_URL . '/assets/lib/slick/slick.js', '', '', true);
 }
 
 

@@ -1,0 +1,15 @@
+# ignore these plugins
+xampp/wp-content/plugins/hello.php
+docker/wp-content/plugins/hello.php
+
+# ignore specific themes
+xampp/wp-content/themes/twenty*/
+docker/wp-content/themes/twenty*/
+
+# ignore node dependency directories
+xampp/wp-content/themes/itc-wordpress/node_modules/
+docker/wp-content/themes/itc-wordpress/node_modules/
+
+# ignore log files and databases
+*.log
+*.sql
