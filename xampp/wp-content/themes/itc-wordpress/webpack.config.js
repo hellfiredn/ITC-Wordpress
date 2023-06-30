@@ -44,7 +44,7 @@ const rules = [{
             MiniCssExtractPlugin.loader,
             'css-loader',
             'postcss-loader',
-            'scss-loader',
+            'sass-loader',
         ]
     }
 ]
