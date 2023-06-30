@@ -11,7 +11,7 @@ wp-content/themes/twenty*/
 node_modules/
 
 # config
-wp-config.php
+../../wp-config.php
 
 # ignore log files and databases
 *.log
