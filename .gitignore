@@ -12,4 +12,3 @@ docker/wp-content/themes/itc-wordpress/node_modules/
 
 # ignore log files and databases
 *.log
-*.sql
